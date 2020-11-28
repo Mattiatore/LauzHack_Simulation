@@ -1,7 +1,7 @@
 import random
 import sys
 
-file=open("data.txt","a")
+file=open("datacor.txt","a")
 
 def printgrid(grid,gridsize):
     for i in range(gridsize):
@@ -28,10 +28,11 @@ siml=100000
 movements=[[1,0],[-1,0],[0,1],[0,-1]]
 rombus_size=3
 people_limit=5
-number_of_sim=100
+number_of_sim=2000
 
 
 for sim in range(number_of_sim):
+    print(sim)
     grid=[0]*gridsize
     for i in range(gridsize):
         grid[i]=["."]*gridsize
@@ -89,14 +90,15 @@ for sim in range(number_of_sim):
                     print(i,j)
                     #printrombus(grid,gridsize,i,j,rombus_size)
                     continue_simulation=False
-                    break
+                    
                 else:
                     number_of_clusters[number_people2]+=1
             if not continue_simulation:
                 break
-        output.append(number_of_clusters)
         if not continue_simulation:
             break
+        output.append(number_of_clusters)
+        
     print(len(output))
     #for i in range(len(output)):
         #print(len(output)-i,output[i])
